@@ -4,7 +4,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext.jsx";
 
-function Navbar({ setLogin }) {
+function Navbar({ setLogin, user, onLogout }) {
   const [menu, setMenu] = useState("Home");
   const { getTotalCartAmount } = useContext(StoreContext);
   return (
@@ -50,7 +50,14 @@ function Navbar({ setLogin }) {
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
-        <button onClick={() => setLogin(true)}>Sign In</button>
+        {user ? (
+          <div className="user-info">
+            <span>Welcome, {user.name}</span>
+            <button onClick={onLogout}>Logout</button>
+          </div>
+        ) : (
+          <button onClick={() => setLogin(true)}>Sign In</button>
+        )}
       </div>
     </div>
   );

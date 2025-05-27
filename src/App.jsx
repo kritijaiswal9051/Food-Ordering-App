@@ -9,11 +9,17 @@ import LoginPopup from "./components/loginpopup/LoginPopup";
 
 function App() {
   const [login, setLogin] = useState(false);
+  const [user, setUser] = useState(null);
+
+  const handleLogout = () => {
+    setUser(null);
+  };
+
   return (
     <>
-      {login ? <LoginPopup setLogin={setLogin} /> : <></>}
+      {login ? <LoginPopup setLogin={setLogin} setUser={setUser} /> : <></>}
       <div className="app">
-        <Navbar setLogin={setLogin} />
+        <Navbar setLogin={setLogin} user={user} onLogout={handleLogout} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />

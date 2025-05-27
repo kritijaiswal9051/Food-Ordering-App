@@ -54,6 +54,31 @@
   right: -8px;
 }
 
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info span {
+  color: #333;
+  font-size: 14px;
+}
+
+.user-info button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.user-info button:hover {
+  background: #ff3333;
+}
+
 /***************************************************/
 
 @media (max-width: 1050px) {
